@@ -1,8 +1,59 @@
-#index{
+@import url('https://fonts.googleapis.com/css?family=Sue+Ellen+Francisco');
+
+#index {
   background-color: black;
+  font-family: 'Sue Ellen Francisco', cursive;
 }
 
-#selfie_jonny{
+#selfie_jonny {
   width: 100%;
-  height: 100%;
+}
+
+#info {
+  background-color: rgba(0, 140, 140, 1);
+  color: #EEE;
+  border: 4px solid #EEE;
+}
+
+.headline {
+  font-size: 130%;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+a, a:visited {
+  color: inherit;
+}
+
+/* Conditional CSS (Media Queries) */
+
+#index {
+  font-size: 150%;
+  overflow-y: hidden;
+  z-index: 1;
+}
+
+#info {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 20px 40px;
+  z-index: 2;
+}
+
+@media screen and (max-width: 950px) {
+  #index {
+    font-size: 110%;
+    overflow-y: scroll;
+  }
+
+  #info {
+    position: static;
+    margin: 10px auto 20px auto;
+    padding: 10px;
+    max-width: 350px;
+  } 
 }
