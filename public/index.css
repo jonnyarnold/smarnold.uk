@@ -88,6 +88,7 @@
 
 .index-image {
   width: 200px;
+  filter: contrast(125%) saturate(125%);
 }
 
 @media screen and (max-width: 616px) {
