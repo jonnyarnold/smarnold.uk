@@ -10,7 +10,7 @@ body {
 
   margin: 0 auto;
   padding: 0;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .big-day-page {
@@ -20,6 +20,8 @@ body {
   box-sizing: border-box;
   min-width: 320px;
   max-width: 1000px;
+
+  padding-bottom: 50px;
 }
 
 .hero {
@@ -36,6 +38,7 @@ body {
   font-family: "Sue Ellen Francisco", cursive;
   font-size: 300%;
   font-weight: 700;
+  text-align: center;
 
   text-shadow: 0 0 5px #f9f9f9;
 }
@@ -52,8 +55,44 @@ body {
   margin: 0 0 20px 20px;
 }
 
+h2 {
+  font-family: "Sue Ellen Francisco", cursive;
+  margin: 40px 10px 10px 10px;
+}
+
+h3 {
+  font-family: "Sue Ellen Francisco", cursive;
+  margin: 40px 10px 0 10px;
+}
+
+p {
+  margin: 10px 10px 20px 10px;
+}
+
+.initial-content-container {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 640px) {
+  .initial-content-container {
+    flex-direction: column;
+  }
+}
+
+.intro {
+  flex: 2;
+  padding-left: 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .intro {
+    padding-left: 0;
+  }
+}
+
 .itinerary {
-  display: inline-block;
+  flex: 1;
 
   box-shadow: -3px 3px 4px 2px rgba(0, 0, 0, 0.5);
   transform: rotate(-3deg);
@@ -62,6 +101,14 @@ body {
 
   font-family: "Sue Ellen Francisco", cursive;
   font-weight: 400;
+
+  margin: -40px 40px 10px 40px;
+}
+
+@media screen and (max-width: 640px) {
+  .itinerary {
+    margin: 20px;
+  }
 }
 
 .itinerary-title {
@@ -80,4 +127,14 @@ body {
 .itinerary-time {
   font-weight: bold;
   padding-right: 5px;
+}
+
+.faqs {
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 640px) {
+  .faqs {
+    padding: 0;
+  }
 }

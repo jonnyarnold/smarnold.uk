@@ -1,0 +1,116 @@
+@import '//fonts.googleapis.com/css?family=Sue+Ellen+Francisco';
+@import '//fonts.googleapis.com/css?family=Josefin+Sans:300, 700';
+
+body {
+  background-color: #f0f0f0;
+
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+
+  margin: 0 auto;
+  padding: 0;
+}
+
+.help-page {
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  max-width: 1000px;
+  min-width: 320px;
+
+  padding-bottom: 50px;
+}
+
+.hero {
+  background: url('/help-us-out/../placeholder.png') no-repeat center top;
+  background-size: cover;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.hero-title {
+  padding: 150px 20px;
+  margin: 0;
+
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-size: 300%;
+  font-weight: 700;
+  text-align: center;
+
+  text-shadow: 0 0 5px #f9f9f9;
+}
+
+h2 {
+  font-family: 'Sue Ellen Francisco', cursive;
+  margin: 20px 10px 10px 10px;
+}
+
+h3 {
+  font-family: 'Sue Ellen Francisco', cursive;
+  margin: 40px 10px 0 10px;
+}
+
+p {
+  margin: 10px 10px 20px 10px;
+}
+
+.intro {
+  padding: 20px;
+}
+
+.help-section {
+  align-items: center;
+  display: flex;
+
+  padding: 20px;
+}
+
+.help-section-left-image {
+  flex-direction: row-reverse;
+}
+
+@media screen and (max-width: 640px) {
+  .help-section {
+    flex-direction: column-reverse;
+
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.help-section-content {
+  flex: 3;
+}
+
+.help-section-image-container {
+  background-color: #fff;
+  box-shadow: -3px 3px 4px 2px rgba(0, 0, 0, 0.5);
+
+  flex: 1;
+
+  font-family: 'Sue Ellen Francisco', cursive;
+  font-weight: 400;
+
+  margin: 0 20px;
+
+  padding: 10px;
+  transform: rotate(3deg);
+}
+
+.help-section-left-image .help-section-image-container {
+  transform: rotate(-3deg);
+}
+
+@media screen and (max-width: 640px) {
+  .help-section-image-container {
+    margin: 20px;
+  }
+}
+
+.help-section-caption {
+  font-weight: 700;
+  padding: 10px 0 0 0;
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+body {
+  background: url("/places-to-stay/dot.svg");
+}
+
+.flowchart {
+  display: block;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.flowchart-link > path {
+  transition: fill 0.25s linear;
+}
+
+.flowchart-link:hover > path {
+  fill: #ddd;
+}
