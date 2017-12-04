@@ -1,10 +1,10 @@
-@import '//fonts.googleapis.com/css?family=Sue+Ellen+Francisco';
+@import "//fonts.googleapis.com/css?family=Sue+Ellen+Francisco";
 @import '//fonts.googleapis.com/css?family=Josefin+Sans:300, 700';
 
 body {
   background-color: #f0f0f0;
 
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 20px;
   font-weight: 300;
 
@@ -24,7 +24,7 @@ body {
 }
 
 .hero {
-  background: url('/help-us-out/../placeholder.png') no-repeat center top;
+  background: url("/help-us-out/mat.png") no-repeat center top;
   background-size: cover;
   margin: 0 auto;
   max-width: 1000px;
@@ -34,21 +34,22 @@ body {
   padding: 150px 20px;
   margin: 0;
 
-  font-family: 'Sue Ellen Francisco', cursive;
+  font-family: "Sue Ellen Francisco", cursive;
   font-size: 300%;
   font-weight: 700;
   text-align: center;
 
-  text-shadow: 0 0 5px #f9f9f9;
+  color: white;
+  text-shadow: 0 0 5px #090909;
 }
 
 h2 {
-  font-family: 'Sue Ellen Francisco', cursive;
+  font-family: "Sue Ellen Francisco", cursive;
   margin: 20px 10px 10px 10px;
 }
 
 h3 {
-  font-family: 'Sue Ellen Francisco', cursive;
+  font-family: "Sue Ellen Francisco", cursive;
   margin: 40px 10px 0 10px;
 }
 
@@ -94,7 +95,7 @@ p {
 
   flex: 1;
 
-  font-family: 'Sue Ellen Francisco', cursive;
+  font-family: "Sue Ellen Francisco", cursive;
   font-weight: 400;
 
   margin: 0 20px;

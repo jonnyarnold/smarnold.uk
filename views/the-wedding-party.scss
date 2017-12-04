@@ -1,0 +1,232 @@
+@import "//fonts.googleapis.com/css?family=Sue+Ellen+Francisco";
+@import '//fonts.googleapis.com/css?family=Josefin+Sans:300, 700';
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin when-small {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin when-really-small {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@keyframes disco-bg {
+  0% {
+    background-color: #f0f0f0;
+  }
+  5% {
+    background-color: black;
+  }
+  65% {
+    background-color: black;
+  }
+  70% {
+    background-color: #f0f0f0;
+  }
+}
+
+body {
+  background-color: #f0f0f0;
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+
+  margin: 0 auto;
+  padding: 0;
+
+  animation-name: disco-bg;
+  animation-duration: 10s;
+}
+
+.party-page {
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  max-width: 1000px;
+  min-width: 320px;
+
+  padding-bottom: 50px;
+}
+
+@keyframes disco {
+  0% {
+    background-color: red;
+  }
+  16% {
+    background-color: red;
+  }
+  20% {
+    background-color: yellow;
+  }
+  36% {
+    background-color: yellow;
+  }
+  40% {
+    background-color: blue;
+  }
+  56% {
+    background-color: blue;
+  }
+  60% {
+    background-color: green;
+  }
+  76% {
+    background-color: green;
+  }
+  80% {
+    background-color: violet;
+  }
+  96% {
+    background-color: violet;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.hero {
+  margin: 0 auto;
+  max-width: 1000px;
+
+  background-color: red;
+  animation-name: disco;
+  animation-delay: 0.25s;
+  animation-duration: 3s;
+  animation-iteration-count: 2;
+}
+
+.hero-title {
+  padding: 100px 20px;
+  margin: 0;
+
+  font-family: "Sue Ellen Francisco", cursive;
+  font-size: 300%;
+  font-weight: 700;
+  text-align: center;
+
+  color: white;
+  text-shadow: 0 0 5px #090909;
+}
+
+.party-gallery {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  width: 1000px;
+  margin: 0 auto;
+
+  @include when-small {
+    width: 500px;
+  }
+
+  @include when-really-small {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+.item-image,
+.item-description {
+  padding: 10px;
+  width: 250px;
+  height: 250px;
+
+  @include when-really-small {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.item-name {
+  font-family: "Sue Ellen Francisco", cursive;
+  font-size: 125%;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.item-title {
+  font-family: "Sue Ellen Francisco", cursive;
+  font-size: 100%;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.item-info {
+  margin: 0;
+  padding: 10px 0;
+}
+
+@for $row from 0 through 9 {
+  @for $column from 1 through 4 {
+    $order: #{$row * 10 + $column};
+
+    .cell-#{$row}#{$column} {
+      order: $order;
+      @include when-small {
+        order: 0;
+      }
+    }
+  }
+}
+
+.description-below,
+.description-above {
+  text-align: center;
+
+  @include when-small {
+    text-align: left;
+  }
+}
+
+.description-left {
+  text-align: right;
+
+  @include when-small {
+    text-align: left;
+  }
+}
+
+.description-right {
+  text-align: left;
+}
+
+.item-1 {
+  background-color: #fcc;
+}
+
+.item-2 {
+  background-color: #cfc;
+}
+
+.item-3 {
+  background-color: #ccf;
+}
+
+.item-4 {
+  background-color: #ffc;
+}
+
+.item-5 {
+  background-color: #cff;
+}
+
+.spacer {
+  width: 250px;
+  height: 250px;
+
+  @include when-small {
+    flex: 0 0 0;
+  }
+}

@@ -6,7 +6,7 @@
   font-size: 16px;
   margin: 0;
   padding: 0;
-  border: 8px solid #f9f9f9;
+  border: 8px solid white;
   text-align: center;
 
   box-sizing: border-box;
@@ -14,7 +14,7 @@
 }
 
 .index-image-table {
-  background-color: #f9f9f9;
+  background-color: white;
 }
 
 .index-image-row {
@@ -83,7 +83,7 @@
 .index-image,
 .index-content-box {
   box-sizing: border-box;
-  border: 8px solid #f9f9f9;
+  border: 8px solid white;
 }
 
 .index-image {
