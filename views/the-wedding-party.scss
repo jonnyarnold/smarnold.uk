@@ -1,5 +1,4 @@
 @import "//fonts.googleapis.com/css?family=Sue+Ellen+Francisco";
-@import '//fonts.googleapis.com/css?family=Josefin+Sans:300, 700';
 
 * {
   box-sizing: border-box;
@@ -17,37 +16,19 @@
   }
 }
 
-@keyframes disco-bg {
-  0% {
-    background-color: #f0f0f0;
-  }
-  5% {
-    background-color: black;
-  }
-  65% {
-    background-color: black;
-  }
-  70% {
-    background-color: #f0f0f0;
-  }
-}
-
 body {
   background-color: #f0f0f0;
 
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Sue Ellen Francisco", cursive;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 700;
 
   margin: 0 auto;
   padding: 0;
-
-  animation-name: disco-bg;
-  animation-duration: 10s;
 }
 
 .party-page {
-  background-color: #f9f9f9;
+  background: url("/the-wedding-party/bg.png") top;
   box-sizing: border-box;
   margin: 0 auto;
 
@@ -59,37 +40,37 @@ body {
 
 @keyframes disco {
   0% {
-    background-color: red;
+    color: rgba(0, 255, 255, 1);
   }
   16% {
-    background-color: red;
+    color: rgba(0, 255, 255, 1);
   }
   20% {
-    background-color: yellow;
+    color: rgba(168, 0, 255, 1);
   }
   36% {
-    background-color: yellow;
+    color: rgba(168, 0, 255, 1);
   }
   40% {
-    background-color: blue;
+    color: rgba(255, 135, 0, 1);
   }
   56% {
-    background-color: blue;
+    color: rgba(255, 135, 0, 1);
   }
   60% {
-    background-color: green;
+    color: rgba(128, 255, 0, 1);
   }
   76% {
-    background-color: green;
+    color: rgba(128, 255, 0, 1);
   }
   80% {
-    background-color: violet;
+    color: rgba(255, 0, 135, 1);
   }
   96% {
-    background-color: violet;
+    color: rgba(255, 0, 135, 1);
   }
   100% {
-    background-color: red;
+    color: rgba(0, 255, 255, 1);
   }
 }
 
@@ -97,23 +78,19 @@ body {
   margin: 0 auto;
   max-width: 1000px;
 
-  background-color: red;
+  background: url("/the-wedding-party/bg-inverted.png") bottom;
   animation-name: disco;
-  animation-delay: 0.25s;
   animation-duration: 3s;
-  animation-iteration-count: 2;
+  animation-iteration-count: infinite;
 }
 
 .hero-title {
   padding: 100px 20px;
   margin: 0;
 
-  font-family: "Sue Ellen Francisco", cursive;
   font-size: 300%;
-  font-weight: 700;
   text-align: center;
 
-  color: white;
   text-shadow: 0 0 5px #090909;
 }
 
@@ -135,6 +112,11 @@ body {
   }
 }
 
+.item-image {
+  z-index: 1;
+  border-radius: 80px;
+}
+
 .item-image,
 .item-description {
   padding: 10px;
@@ -142,30 +124,39 @@ body {
   height: 250px;
 
   @include when-really-small {
-    width: 100%;
+    max-width: 400px;
     height: auto;
+    margin: 0 auto;
   }
+}
+
+.item-description,
+.shuffle-link {
+  display: flex;
+}
+
+.item-description-content {
+  width: 100%;
 }
 
 .item-name {
   font-family: "Sue Ellen Francisco", cursive;
-  font-size: 125%;
+  font-size: 170%;
   font-weight: 700;
   margin: 0;
   padding: 0;
+
+  line-height: 1.25;
 }
 
 .item-title {
   font-family: "Sue Ellen Francisco", cursive;
-  font-size: 100%;
+  font-size: 120%;
   font-weight: 700;
   margin: 0;
   padding: 0;
-}
 
-.item-info {
-  margin: 0;
-  padding: 10px 0;
+  line-height: 1.25;
 }
 
 @for $row from 0 through 9 {
@@ -181,45 +172,154 @@ body {
   }
 }
 
-.description-below,
+.arrow {
+  @include when-small {
+    display: none;
+  }
+}
+
 .description-above {
   text-align: center;
+  align-self: flex-end;
+  margin: 0 auto;
+}
 
-  @include when-small {
-    text-align: left;
-  }
+.arrow-down {
+  margin-bottom: -40px;
+  margin-top: 7px;
+  position: relative;
+  z-index: 2;
+}
+
+.description-below {
+  text-align: center;
+  align-self: flex-start;
+  margin: 0 auto;
+}
+
+.arrow-up {
+  margin-top: -40px;
+  margin-bottom: 7px;
+  position: relative;
+  z-index: 2;
 }
 
 .description-left {
   text-align: right;
+  align-self: center;
+}
 
-  @include when-small {
-    text-align: left;
-  }
+.arrow-right {
+  margin-right: -40px;
+  margin-bottom: 3px;
+  position: relative;
+  z-index: 2;
 }
 
 .description-right {
   text-align: left;
+  align-self: center;
+}
+
+.arrow-left {
+  margin-left: -35px;
+  margin-top: 3px;
+  position: relative;
+  z-index: 2;
+}
+
+.description-below,
+.description-above,
+.description-left,
+.description-right {
+  @include when-small {
+    text-align: left;
+    align-self: center;
+  }
+
+  @include when-really-small {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+}
+
+.shuffle-link {
+  padding: 0;
+  margin: 10px;
+  width: 230px;
+  height: 230px;
+  border-radius: 80px;
+
+  @include when-really-small {
+    margin: 10px auto;
+  }
+
+  background-color: rgba(0, 140, 140, 1);
+  color: white;
+
+  text-decoration: none;
+}
+
+.shuffle-text {
+  text-align: center;
+  align-self: center;
+  margin: 0 auto;
+  font-size: 150%;
 }
 
 .item-1 {
-  background-color: #fcc;
+  .item-name,
+  .item-title {
+    color: rgba(0, 140, 140, 1);
+  }
+
+  .arrow * {
+    stroke: rgba(0, 140, 140, 1) !important;
+  }
 }
 
 .item-2 {
-  background-color: #cfc;
+  .item-name,
+  .item-title {
+    color: rgba(53, 0, 140, 1);
+  }
+
+  .arrow * {
+    stroke: rgba(53, 0, 140, 1) !important;
+  }
 }
 
 .item-3 {
-  background-color: #ccf;
+  .item-name,
+  .item-title {
+    color: rgba(190, 70, 0, 1);
+  }
+
+  .arrow * {
+    stroke: rgba(190, 70, 0, 1) !important;
+  }
 }
 
 .item-4 {
-  background-color: #ffc;
+  .item-name,
+  .item-title {
+    color: rgba(13, 140, 0, 1);
+  }
+
+  .arrow * {
+    stroke: rgba(13, 140, 0, 1) !important;
+  }
 }
 
 .item-5 {
-  background-color: #cff;
+  .item-name,
+  .item-title {
+    color: rgba(222, 133, 0, 1);
+  }
+
+  .arrow * {
+    stroke: rgba(222, 133, 0, 1) !important;
+  }
 }
 
 .spacer {
@@ -229,4 +329,16 @@ body {
   @include when-small {
     flex: 0 0 0;
   }
+}
+
+.attribution {
+  text-align: center;
+  font-size: 75%;
+  color: #666;
+  margin-top: 60px;
+}
+
+.attribution-link {
+  color: #666;
+  text-decoration: none;
 }

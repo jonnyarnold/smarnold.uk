@@ -1,4 +1,103 @@
-<title>#smarnold</title>
+<%
+arrow_right = <<ARROW
+  <svg
+     class="arrow arrow-right"
+     xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg"
+     width="51.107468"
+     height="52.913387"
+     viewBox="0 0 13.522184 14.000001"
+     version="1.1">
+    <g transform="translate(-2.3053636,-281.8111)">
+      <g
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+         transform="matrix(4.0076599,0,0,4.0076599,-6.9337498,-889.6992)">
+        <path
+           d="m 2.6458333,295.67708 c -0.79375,-1.85208 0.79375,-3.43958 2.6458333,-2.64583"
+           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+        <path
+           d="m 5.1734453,292.45172 0.3737163,0.64836 -0.648358,0.37372"
+           style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+      </g>
+    </g>
+  </svg>
+ARROW
+
+arrow_left = <<ARROW
+  <svg
+   class="arrow arrow-left"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="51.107468"
+   height="52.913387"
+   viewBox="0 0 13.522184 14.000001"
+   version="1.1">
+  <g
+     transform="translate(-2.3053636,-281.8111)">
+    <g
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+       transform="matrix(-4.0076599,0,0,-4.0076599,25.066661,1467.3214)">
+      <path
+         d="m 2.6458333,295.67708 c -0.79375,-1.85208 0.79375,-3.43958 2.6458333,-2.64583"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         d="m 5.1734453,292.45172 0.3737163,0.64836 -0.648358,0.37372"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
+ARROW
+
+arrow_up = <<ARROW
+<svg
+   class="arrow arrow-up"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="21.862841"
+   height="38.709106"
+   viewBox="0 0 5.7845431 10.241785"
+   version="1.1">
+  <g
+     transform="translate(-7.5699949,-281.91689)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.05833328;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 11.387815,291.6232 c -2.1267998,-3.23242 1.314875,-5.9178 -2.0990912,-8.84474"
+       />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.05833328;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 8.1015323,286.00383 1.1588844,-3.55779 3.5577863,1.15888"
+       />
+  </g>
+</svg>
+ARROW
+
+arrow_down = <<ARROW
+<svg
+   class="arrow arrow-down"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   width="21.862841"
+   height="38.709106"
+   viewBox="0 0 5.7845431 10.241785"
+   version="1.1">
+  <g
+     transform="translate(-7.5699949,-281.91689)">
+    <g
+       transform="matrix(1,0,0,-1,7.6974203e-7,574.07556)">
+      <path
+         d="m 11.387815,291.6232 c -2.1267998,-3.23242 1.314875,-5.9178 -2.0990912,-8.84474"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.05833328;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         d="m 8.1015323,286.00383 1.1588844,-3.55779 3.5577863,1.15888"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.05833328;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+</svg>
+ARROW
+%>
+
+
+<title>The Wedding Party  &middot; #smarnold</title>
 <link rel="stylesheet" type="text/css" href="/the-wedding-party/style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -10,140 +109,188 @@
 
     <div class="party-gallery">
       <img class="cell-01 item-image item-1" src="/the-wedding-party/<%= party[0][:image] %>" />
-      <div class="cell-11 item-description description-below item-1">
-        <h2 class="item-name"><%= party[0][:name] %></h2>
-        <h3 class="item-title"><%= party[0][:title] %></h3>
-        <div class="item-info"><%= party[0][:text] %></div>
+      <div class="cell-11 item-description item-1">
+        <div class="item-description-content description-below">
+          <%= arrow_up %>
+          <h2 class="item-name"><%= party[0][:name] %></h2>
+          <h3 class="item-title"><%= party[0][:title] %></h3>
+        </div>
       </div>
 
       <img class="cell-03 item-image item-2" src="/the-wedding-party/<%= party[1][:image] %>" />
-      <div class="cell-02 item-description description-left item-2">
-        <h2 class="item-name"><%= party[1][:name] %></h2>
-        <h3 class="item-title"><%= party[1][:title] %></h3>
-        <div class="item-info"><%= party[1][:text] %></div>
+      <div class="cell-02 item-description item-2">
+        <div class="item-description-content description-left">
+          <%= arrow_right %>
+          <h2 class="item-name"><%= party[1][:name] %></h2>
+          <h3 class="item-title"><%= party[1][:title] %></h3>
+        </div>
       </div>
 
       <img class="cell-12 item-image item-3" src="/the-wedding-party/<%= party[2][:image] %>" />
-      <div class="cell-22 item-description description-below item-3">
-        <h2 class="item-name"><%= party[2][:name] %></h2>
-        <h3 class="item-title"><%= party[2][:title] %></h3>
-        <div class="item-info"><%= party[2][:text] %></div>
+      <div class="cell-22 item-description item-3">
+        <div class="item-description-content description-below">
+          <%= arrow_up %>
+          <h2 class="item-name"><%= party[2][:name] %></h2>
+          <h3 class="item-title"><%= party[2][:title] %></h3>
+        </div>
       </div>
 
       <img class="cell-23 item-image item-4" src="/the-wedding-party/<%= party[3][:image] %>" />
-      <div class="cell-13 item-description description-above item-4">
-        <h2 class="item-name"><%= party[3][:name] %></h2>
-        <h3 class="item-title"><%= party[3][:title] %></h3>
-        <div class="item-info"><%= party[3][:text] %></div>
+      <div class="cell-13 item-description item-4">
+        <div class="item-description-content description-above">
+          <h2 class="item-name"><%= party[3][:name] %></h2>
+          <h3 class="item-title"><%= party[3][:title] %></h3>
+          <%= arrow_down %>
+        </div>
       </div>
 
       <img class="cell-21 item-image item-5" src="/the-wedding-party/<%= party[4][:image] %>" />
-      <div class="cell-31 item-description description-above item-5">
-        <h2 class="item-name"><%= party[4][:name] %></h2>
-        <h3 class="item-title"><%= party[4][:title] %></h3>
-        <div class="item-info"><%= party[4][:text] %></div>
+      <div class="cell-31 item-description item-5">
+        <div class="item-description-content description-below">
+          <%= arrow_up %>
+          <h2 class="item-name"><%= party[4][:name] %></h2>
+          <h3 class="item-title"><%= party[4][:title] %></h3>
+        </div>
       </div>
 
       <img class="cell-14 item-image item-1" src="/the-wedding-party/<%= party[5][:image] %>" />
-      <div class="cell-04 item-description description-below item-1">
-        <h2 class="item-name"><%= party[5][:name] %></h2>
-        <h3 class="item-title"><%= party[5][:title] %></h3>
-        <div class="item-info"><%= party[5][:text] %></div>
+      <div class="cell-04 item-description item-1">
+        <div class="item-description-content description-above">
+          <h2 class="item-name"><%= party[5][:name] %></h2>
+          <h3 class="item-title"><%= party[5][:title] %></h3>
+          <%= arrow_down %>
+        </div>
       </div>
 
       <img class="cell-32 item-image item-2" src="/the-wedding-party/<%= party[6][:image] %>" />
-      <div class="cell-33 item-description description-right item-2">
-        <h2 class="item-name"><%= party[6][:name] %></h2>
-        <h3 class="item-title"><%= party[6][:title] %></h3>
-        <div class="item-info"><%= party[6][:text] %></div>
+      <div class="cell-33 item-description item-2">
+        <div class="item-description-content description-right">
+          <h2 class="item-name"><%= party[6][:name] %></h2>
+          <h3 class="item-title"><%= party[6][:title] %></h3>
+          <%= arrow_left %>
+        </div>
       </div>
 
       <img class="cell-34 item-image item-3" src="/the-wedding-party/<%= party[7][:image] %>" />
-      <div class="cell-24 item-description description-above item-3">
-        <h2 class="item-name"><%= party[7][:name] %></h2>
-        <h3 class="item-title"><%= party[7][:title] %></h3>
-        <div class="item-info"><%= party[7][:text] %></div>
+      <div class="cell-24 item-description item-3">
+        <div class="item-description-content description-above">
+          <h2 class="item-name"><%= party[7][:name] %></h2>
+          <h3 class="item-title"><%= party[7][:title] %></h3>
+          <%= arrow_down %>
+        </div>
       </div>
 
       <img class="cell-41 item-image item-4" src="/the-wedding-party/<%= party[8][:image] %>" />
-      <div class="cell-42 item-description description-right item-4">
-        <h2 class="item-name"><%= party[8][:name] %></h2>
-        <h3 class="item-title"><%= party[8][:title] %></h3>
-        <div class="item-info"><%= party[8][:text] %></div>
+      <div class="cell-42 item-description item-4">
+        <div class="item-description-content description-right">
+          <h2 class="item-name"><%= party[8][:name] %></h2>
+          <h3 class="item-title"><%= party[8][:title] %></h3>
+          <%= arrow_left %>
+        </div>
       </div>
 
       <img class="cell-52 item-image item-5" src="/the-wedding-party/<%= party[9][:image] %>" />
-      <div class="cell-51 item-description description-left item-5">
-        <h2 class="item-name"><%= party[9][:name] %></h2>
-        <h3 class="item-title"><%= party[9][:title] %></h3>
-        <div class="item-info"><%= party[9][:text] %></div>
+      <div class="cell-51 item-description item-5">
+        <div class="item-description-content description-left">
+          <%= arrow_right %>
+          <h2 class="item-name"><%= party[9][:name] %></h2>
+          <h3 class="item-title"><%= party[9][:title] %></h3>
+        </div>
       </div>
 
       <img class="cell-43 item-image item-1" src="/the-wedding-party/<%= party[10][:image] %>" />
-      <div class="cell-44 item-description description-right item-1">
-        <h2 class="item-name"><%= party[10][:name] %></h2>
-        <h3 class="item-title"><%= party[10][:title] %></h3>
-        <div class="item-info"><%= party[10][:text] %></div>
+      <div class="cell-44 item-description item-1">
+        <div class="item-description-content description-right">
+          <h2 class="item-name"><%= party[10][:name] %></h2>
+          <h3 class="item-title"><%= party[10][:title] %></h3>
+          <%= arrow_left %>
+        </div>
       </div>
 
       <img class="cell-54 item-image item-2" src="/the-wedding-party/<%= party[11][:image] %>" />
-      <div class="cell-53 item-description description-left item-2">
-        <h2 class="item-name"><%= party[11][:name] %></h2>
-        <h3 class="item-title"><%= party[11][:title] %></h3>
-        <div class="item-info"><%= party[11][:text] %></div>
+      <div class="cell-53 item-description item-2">
+        <div class="item-description-content description-left">
+          <%= arrow_right %>
+          <h2 class="item-name"><%= party[11][:name] %></h2>
+          <h3 class="item-title"><%= party[11][:title] %></h3>
+        </div>
       </div>
 
       <img class="cell-61 item-image item-3" src="/the-wedding-party/<%= party[12][:image] %>" />
-      <div class="cell-71 item-description description-below item-3">
-        <h2 class="item-name"><%= party[12][:name] %></h2>
-        <h3 class="item-title"><%= party[12][:title] %></h3>
-        <div class="item-info"><%= party[12][:text] %></div>
+      <div class="cell-71 item-description item-3">
+        <div class="item-description-content description-below">
+          <%= arrow_up %>
+          <h2 class="item-name"><%= party[12][:name] %></h2>
+          <h3 class="item-title"><%= party[12][:title] %></h3>
+        </div>
       </div>
 
       <img class="cell-63 item-image item-4" src="/the-wedding-party/<%= party[13][:image] %>" />
-      <div class="cell-62 item-description description-left item-4">
-        <h2 class="item-name"><%= party[13][:name] %></h2>
-        <h3 class="item-title"><%= party[13][:title] %></h3>
-        <div class="item-info"><%= party[13][:text] %></div>
+      <div class="cell-62 item-description item-4">
+        <div class="item-description-content description-left">
+          <%= arrow_right %>
+          <h2 class="item-name"><%= party[13][:name] %></h2>
+          <h3 class="item-title"><%= party[13][:title] %></h3>
+        </div>
       </div>
 
       <img class="cell-72 item-image item-5" src="/the-wedding-party/<%= party[14][:image] %>" />
-      <div class="cell-73 item-description description-right item-5">
-        <h2 class="item-name"><%= party[14][:name] %></h2>
-        <h3 class="item-title"><%= party[14][:title] %></h3>
-        <div class="item-info"><%= party[14][:text] %></div>
+      <div class="cell-73 item-description item-5">
+        <div class="item-description-content description-right">
+          <h2 class="item-name"><%= party[14][:name] %></h2>
+          <h3 class="item-title"><%= party[14][:title] %></h3>
+          <%= arrow_left %>
+        </div>
       </div>
 
       <img class="cell-74 item-image item-1" src="/the-wedding-party/<%= party[15][:image] %>" />
-      <div class="cell-64 item-description description-above item-1">
-        <h2 class="item-name"><%= party[15][:name] %></h2>
-        <h3 class="item-title"><%= party[15][:title] %></h3>
-        <div class="item-info"><%= party[15][:text] %></div>
+      <div class="cell-64 item-description item-1">
+        <div class="item-description-content description-above">
+          <h2 class="item-name"><%= party[15][:name] %></h2>
+          <h3 class="item-title"><%= party[15][:title] %></h3>
+          <%= arrow_down %>
+        </div>
       </div>
 
       <img class="cell-81 item-image item-2" src="/the-wedding-party/<%= party[16][:image] %>" />
-      <div class="cell-82 item-description description-right item-2">
-        <h2 class="item-name"><%= party[16][:name] %></h2>
-        <h3 class="item-title"><%= party[16][:title] %></h3>
-        <div class="item-info"><%= party[16][:text] %></div>
+      <div class="cell-82 item-description item-2">
+        <div class="item-description-content description-right">
+          <h2 class="item-name"><%= party[16][:name] %></h2>
+          <h3 class="item-title"><%= party[16][:title] %></h3>
+          <%= arrow_left %>
+        </div>
       </div>
 
       <img class="cell-83 item-image item-3" src="/the-wedding-party/<%= party[17][:image] %>" />
-      <div class="cell-84 item-description description-right item-3">
-        <h2 class="item-name"><%= party[17][:name] %></h2>
-        <h3 class="item-title"><%= party[17][:title] %></h3>
-        <div class="item-info"><%= party[17][:text] %></div>
+      <div class="cell-84 item-description item-3">
+        <div class="item-description-content description-right">
+          <h2 class="item-name"><%= party[17][:name] %></h2>
+          <h3 class="item-title"><%= party[17][:title] %></h3>
+          <%= arrow_left %>
+        </div>
       </div>
 
       <img class="cell-92 item-image item-4" src="/the-wedding-party/<%= party[18][:image] %>" />
-      <div class="cell-93 item-description description-right item-4">
-        <h2 class="item-name"><%= party[18][:name] %></h2>
-        <h3 class="item-title"><%= party[18][:title] %></h3>
-        <div class="item-info"><%= party[18][:text] %></div>
+      <div class="cell-91 item-description item-4">
+        <div class="item-description-content description-left">
+          <%= arrow_right %>
+          <h2 class="item-name"><%= party[18][:name] %></h2>
+          <h3 class="item-title"><%= party[18][:title] %></h3>
+        </div>
       </div>
 
-      <div class="cell-91 spacer"></div>
-      <div class="cell-94 spacer"></div>
+      <div class="cell-93 spacer"></div>
+      
+      <a href="/the-wedding-party" class="cell-94 shuffle-link">
+        <div class="shuffle-text">
+          Wedding Party<br/>Shuffle!
+        </div>
+      </a>
     </div>
+
+    <p class="attribution">
+      Background: <a class="attribution-link" href="https://www.toptal.com/designers/subtlepatterns/memphis-colorful/" target="_blank">CC BY-SA 3.0 license © Toptal Designers</a>.
+    </p>
   </div>
+
 </body>
