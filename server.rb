@@ -64,7 +64,6 @@ end
 
 # Post a person's RSVP.
 post '/rsvp/:id' do
-
   new_details = {
     rsvp_response: params["rsvp_response"].to_i,
     dietary_requirements: params["dietary_requirements"],
@@ -75,4 +74,8 @@ post '/rsvp/:id' do
   person = DB.person(params[:id])
 
   erb :'rsvp-complete', locals: { person: person }
+end
+
+get '/contact-us' do
+  erb :'contact-us'
 end

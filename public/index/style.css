@@ -209,3 +209,13 @@ a {
 .rsvp-box:active {
   background-color: rgba(255, 183, 0, 1);
 }
+
+.contact-us-box {
+  background-color: rgba(194, 81, 127, 1);
+}
+
+.contact-us-box:hover,
+.contact-us-box:focus,
+.contact-us-box:active {
+  background-color: rgba(255, 142, 188, 1);
+}

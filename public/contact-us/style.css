@@ -1,0 +1,78 @@
+@import "//fonts.googleapis.com/css?family=Sue+Ellen+Francisco";
+@import '//fonts.googleapis.com/css?family=Josefin+Sans:300, 700';
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.contact-us-page {
+  background: url("/contact-us/bg.png");
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-us-content {
+  background-color: rgba(0, 140, 140, 1);
+  color: white;
+  border-radius: 80px;
+  padding: 80px;
+  margin: 40px;
+  box-shadow: 0 5px 15px 5px rgba(0, 0, 0, 0.25);
+}
+
+@media screen and (max-width: 600px) {
+  .contact-us-content {
+    padding: 10px;
+    border-radius: 20px;
+    margin: 20px;
+  }
+}
+
+.page-title {
+  font-family: "Sue Ellen Francisco", cursive;
+  font-size: 250%;
+  font-weight: 700;
+  margin: 20px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.contact-options {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-options li {
+  padding: 20px;
+}
+
+.method-name {
+  font-weight: 700;
+  margin: 0 0 5px 0;
+}
+
+.attribution {
+  text-align: center;
+  font-size: 75%;
+  color: #ccc;
+  margin-top: 60px;
+}
+
+.attribution-link {
+  color: #ccc;
+  text-decoration: none;
+}
