@@ -1,0 +1,61 @@
+<title>RSVP &middot; #smarnold</title>
+<link rel="stylesheet" type="text/css" href="rsvp/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="/js/similarity.js"></script>
+<script type="text/javascript">
+
+var people = JSON.parse(<%= names.to_json %>);
+var suggestions = [];
+
+function checkNames(nameLookup) {
+  var lookup = nameLookup.value;
+  
+  suggestions = [];
+  if (lookup.length >= 2) {
+    suggestions = people.map(function(person) {
+      var score = similarity(lookup, person.name);
+      return { id: person.id, name: person.name, score: score };
+    }).filter(function(person) { return person.score > 0 });
+  }
+
+  // Build name suggestions
+  var suggestionContainer = document.getElementById("name-suggestions")
+  while (suggestionContainer.hasChildNodes()) {
+    suggestionContainer.removeChild(suggestionContainer.lastChild);
+  }
+
+  var suggestionElements = suggestions.forEach(function(suggestion) {
+    var suggestionElement = document.createElement("a");
+    suggestionElement.setAttribute("class", "suggestion");
+    suggestionElement.setAttribute("href", "/rsvp/" + suggestion.id);
+    
+    var suggestionText = document.createTextNode(suggestion.name);
+    suggestionElement.appendChild(suggestionText);
+    
+    suggestionContainer.appendChild(suggestionElement);
+  });
+}
+
+function checkEnter(event) {
+  if (event.keyCode === 13 && suggestions.length === 1) {
+    window.location = "/rsvp/" + suggestions[0].id;
+  }
+}
+
+</script>
+
+<body>
+  <div class="rsvp-page">
+    <div class="page-content">
+      <img class="heart" src="/rsvp/heart-teal.svg" />
+
+      <label for="name-lookup" class="name-lookup-label">Hello lovely person.<br/>Please search for your name below.</label>
+      <input class="name-lookup" name="name-lookup" type="text" oninput="checkNames(this)" onkeypress="checkEnter(event)" autocomplete="off" />
+
+      <div id="name-suggestions" class="name-suggestions">&nbsp;</div>
+
+      <p class="contact-us">Can't find your name? <a href="/contact-us">Contact us!</a></p>
+    </div>
+  </div>
+</body>

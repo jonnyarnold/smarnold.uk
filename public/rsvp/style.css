@@ -1,0 +1,164 @@
+@import '//fonts.googleapis.com/css?family=Josefin+Sans:300, 700';
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.rsvp-page {
+  background-color: rgba(0, 140, 140, 1);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.page-content {
+  background-color: white;
+  border-radius: 80px;
+  padding: 80px;
+  margin: 40px;
+  box-shadow: 0 5px 15px 5px rgba(0, 0, 0, 0.25);
+
+  width: 50%;
+}
+
+.edit-page-content {
+  background-color: white;
+  border-radius: 80px;
+  margin: 40px;
+  padding: 80px;
+  box-shadow: 0 5px 15px 5px rgba(0, 0, 0, 0.25);
+
+  width: 50%;
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 600px) {
+  .page-content,
+  .edit-page-content {
+    padding: 20px;
+    border-radius: 40px;
+    width: 95%;
+    margin: 20px;
+  }
+}
+
+.heart {
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: 0 auto 40px auto;
+}
+
+.name-lookup,
+.textarea {
+  display: block;
+  margin: 20px auto;
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 600px) {
+  .name-lookup,
+  .textarea {
+    width: 80%;
+  }
+}
+
+.textarea {
+  padding: 10px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.name-suggestions {
+  display: block;
+  min-height: 4em;
+
+  line-height: 1.5;
+}
+
+.suggestion {
+  display: inline-block;
+  padding: 0 10px;
+
+  text-decoration: none;
+}
+
+.contact-us {
+  font-size: 75%;
+}
+
+.intro {
+  font-weight: 700;
+}
+
+.rsvp-radio {
+  visibility: hidden;
+  position: absolute;
+}
+
+.rsvp-button {
+  display: inline-block;
+  font-weight: 700;
+  padding: 20px 40px;
+  border-radius: 2000px;
+  margin: 40px;
+  cursor: pointer;
+
+  transition: background-color 0.25s ease-out;
+}
+
+.rsvp-radio:checked + label {
+  background-color: rgba(222, 133, 0, 1);
+}
+
+.rsvp-button:hover,
+.rsvp-button:focus,
+.rsvp-button:active {
+  background-color: rgba(255, 183, 0, 1);
+}
+
+@media screen and (max-width: 600px) {
+  .rsvp-button {
+    margin: 20px;
+    padding: 10px 20px;
+  }
+}
+
+.submit-button {
+  display: inline-block;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  font-size: 100%;
+  padding: 20px 40px;
+  border-radius: 2000px;
+  border: 2px solid #ccc;
+  margin: 20px;
+  cursor: pointer;
+
+  transition: background-color 0.25s ease-out;
+}
+
+.thanks {
+  margin-top: 0;
+}
+
+.complete-link {
+  display: block;
+  margin: 10px auto;
+}

@@ -1,5 +1,8 @@
 require 'sinatra'
 require 'sass'
+require 'json'
+
+require './db'
 
 get '/' do
   erb :index
@@ -18,25 +21,25 @@ get '/places-to-stay' do
 end
 
 party = [
-  { name: "Sarah-May", title: "Bride", image: "sarah.jpg", text: "Partial to pie." },
-  { name: "Jonny", title: "Groom", image: "jonny.jpg", text: "Game boy." },
-  { name: "Marie", title: "Mother of the Bride", image: "marie.jpg", text: "Chief chocoholic." },
-  { name: "Jon", title: "Father of the Bride", image: "jon.jpg", text: "Motorbike maniac." },
-  { name: "Alison", title: "Groomsmam", image: "alison.jpg", text: "Adores Abba." },
-  { name: "Laurence", title: "Father of the Groom", image: "laurence.jpg", text: "Mad about movies." },
-  { name: "Adrian", title: "Stepfather of the Groom", image: "adrian.jpg", text: "Football fanatic." },
-  { name: "Nathan", title: "Bride's Brother", image: "nathan.jpg", text: "Penchant for petrol." },
-  { name: "Chris", title: "Groomsbro", image: "chris.jpg", text: "Bad movie buff." },
-  { name: "Dan", title: "Groomsbro", image: "dan-l.jpg", text: "Super sporty." },
-  { name: "Joe", title: "Groomsbro", image: "joe.jpg", text: "~LIKES JAPANESE~." },
-  { name: "Danni", title: "Bridesmaid", image: "danni.jpg", text: "Cactus cuddler." },
-  { name: "Dan", title: "Bridesman", image: "dan-p.jpg", text: "Near t' the theatre." },
-  { name: "Emma", title: "Bridesmaid", image: "emma.jpg", text: "Eager for Jager." },
-  { name: "Emily", title: "Bridesmaid", image: "emily.jpg", text: "Crazy for crafts." },
-  { name: "Jo", title: "Bridesmaid", image: "jo.jpg", text: "Too cool for school." },
-  { name: "Ruth", title: "Bridesmaid", image: "ruth.jpg", text: "Awesome at animation." },
-  { name: "Luke", title: "Best Man", image: "luke.jpg", text: "Bonkers for boardgames." },
-  { name: "Helen", title: "Groomsmaid", image: "helen.jpg", text: "Dog whisperer." }
+  { name: "Sarah-May", title: "Bride", image: "sarah.jpg",},
+  { name: "Jonny", title: "Groom", image: "jonny.jpg"},
+  { name: "Marie", title: "Mother of the Bride", image: "marie.jpg"},
+  { name: "Jon", title: "Father of the Bride", image: "jon.jpg"},
+  { name: "Alison", title: "Groomsmam", image: "alison.jpg"},
+  { name: "Laurence", title: "Father of the Groom", image: "laurence.jpg"},
+  { name: "Adrian", title: "Stepfather of the Groom", image: "adrian.jpg"},
+  { name: "Nathan", title: "Bride's Brother", image: "nathan.jpg"},
+  { name: "Chris", title: "Groomsbro", image: "chris.jpg"},
+  { name: "Dan", title: "Groomsbro", image: "dan-l.jpg"},
+  { name: "Joe", title: "Groomsbro", image: "joe.jpg"},
+  { name: "Danni", title: "Bridesmaid", image: "danni.jpg"},
+  { name: "Dan", title: "Bridesman", image: "dan-p.jpg"},
+  { name: "Emma", title: "Bridesmaid", image: "emma.jpg"},
+  { name: "Emily", title: "Bridesmaid", image: "emily.jpg"},
+  { name: "Jo", title: "Bridesmaid", image: "jo.jpg"},
+  { name: "Ruth", title: "Bridesmaid", image: "ruth.jpg"},
+  { name: "Luke", title: "Best Man", image: "luke.jpg"},
+  { name: "Helen", title: "Groomsmaid", image: "helen.jpg"}
 ]
 
 get '/the-wedding-party' do
@@ -46,4 +49,30 @@ end
 
 get '/the-wedding-party/style.css' do
   scss :'the-wedding-party'
+end
+
+get '/rsvp' do
+  all_people = DB.all_people.to_json
+  erb :'rsvp-search', locals: { names: all_people }
+end
+
+get '/rsvp/:id' do
+  person = DB.person(params[:id])
+  puts person
+  erb :'rsvp-edit', locals: { person: person }
+end
+
+# Post a person's RSVP.
+post '/rsvp/:id' do
+
+  new_details = {
+    rsvp_response: params["rsvp_response"].to_i,
+    dietary_requirements: params["dietary_requirements"],
+    comments: params["comments"]    
+  }
+
+  DB.update_person(params[:id], new_details)
+  person = DB.person(params[:id])
+
+  erb :'rsvp-complete', locals: { person: person }
 end

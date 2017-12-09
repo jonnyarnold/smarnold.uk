@@ -1,0 +1,93 @@
+<%
+first_name = person["name"].split(" ").first
+%>
+
+<title><%= first_name %>'s RSVP &middot; #smarnold</title>
+<link rel="stylesheet" type="text/css" href="/rsvp/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript">
+
+function onRsvpChange(rsvpRadio) {
+  var response = rsvpRadio.value;
+  showPages(response === "1");
+}
+
+function showPages(rsvpResponse) {
+  var yesPage = document.getElementById("lookup-page-yes");
+  var noPage = document.getElementById("lookup-page-no");
+  var bothPage = document.getElementById("lookup-page-both");
+
+  yesPage.style.display = "none";
+  noPage.style.display = "none";
+  bothPage.style.display = "block";
+  if (rsvpResponse) {
+    yesPage.style.display = "block";
+  } else {
+    noPage.style.display = "block";
+  }
+}
+
+<%=
+
+rsvp = person["rsvp_response"]
+!rsvp.nil? ? "window.onload = function() { showPages(#{rsvp == "t"}); };" : nil
+
+%>
+
+</script>
+
+<body>
+  <div class="rsvp-page">
+    <form class="edit-page-content" action="/rsvp/<%= person["id"] %>" method="POST">
+      <img class="heart" src="/rsvp/heart-teal.svg" />
+
+      <p class="intro">
+        Hi there <%= first_name %>! It's great to hear from you.
+      </p>
+
+      <p>Will you be there?</p>
+      <input 
+        id="rsvp-yes" 
+        class="rsvp-radio"
+        type="radio" 
+        name="rsvp_response" 
+        value="1" 
+        onchange="onRsvpChange(this)"
+        <%= person["rsvp_response"] == "t" ? "checked" : "" %> />
+      <label class="rsvp-button" for="rsvp-yes">Yes!</label>
+
+      <input 
+        id="rsvp-no"
+        class="rsvp-radio" 
+        type="radio" 
+        name="rsvp_response" 
+        value="0" 
+        onchange="onRsvpChange(this)"
+        <%= person["rsvp_response"] == "f" ? "checked" : "" %> />
+      <label class="rsvp-button" for="rsvp-no">No</label>
+
+      <div id="lookup-page-yes" style="display: none;">
+        <p>Fab.</p>
+
+        <label for="dietary_requirements">
+          Do you have any dietary requirements our caterer should know about?
+        </label>
+        <textarea class="textarea" name="dietary_requirements" rows="4" cols="40"><%= person["dietary_requirements"] %></textarea>
+      </div>
+
+      <div id="lookup-page-no" style="display: none;">
+        <p>It won't be the same without you! We hope your bank holiday plans are equally good.</p>
+      </div>
+
+      <div id="lookup-page-both" style="display: none;">
+        <label for="comments">
+          Anything else you'd like to say?
+        </label>
+        <textarea class="textarea" name="comments" rows="4" cols="40"><%= person["comments"] %></textarea>
+
+        <button class="submit-button" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</body>

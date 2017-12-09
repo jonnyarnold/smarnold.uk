@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ffi (1.9.18)
+    pg (0.18.4)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -23,6 +24,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pg
   sass
   sinatra
 
