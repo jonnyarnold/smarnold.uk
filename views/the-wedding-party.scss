@@ -29,13 +29,20 @@ body {
 
 .party-page {
   background: url("/the-wedding-party/bg.png") top;
-  box-sizing: border-box;
   margin: 0 auto;
 
   max-width: 1000px;
   min-width: 320px;
 
   padding-bottom: 50px;
+
+  // Fuck you IE.
+  max-height: 3000px;
+  overflow-y: hidden;
+
+  @include when-small {
+    max-height: none;
+  }
 }
 
 @keyframes disco {
@@ -100,14 +107,17 @@ body {
   flex-wrap: wrap;
 
   width: 1000px;
+  height: 2500px;
   margin: 0 auto;
 
   @include when-small {
     width: 500px;
+    height: auto;
   }
 
   @include when-really-small {
     width: 100%;
+    height: auto;
     flex-direction: column;
   }
 }
@@ -327,7 +337,7 @@ body {
   height: 250px;
 
   @include when-small {
-    flex: 0 0 0;
+    display: none;
   }
 }
 

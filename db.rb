@@ -5,6 +5,11 @@ $connection = PG.connect(DATABASE_URL)
 
 module DB
 
+  def self.connection
+    $connection.reset if $connection.status == PG::CONNECTION_BAD
+    $connection
+  end
+
   def self.all_people
     $connection.exec("SELECT * FROM people") do |results|
       results.map { |row| { id: row['id'], name: row['name'] } }
