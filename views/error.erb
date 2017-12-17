@@ -1,0 +1,19 @@
+<title>Oops! &middot; #smarnold</title>
+<link rel="stylesheet" type="text/css" href="/error/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<%
+error ||= "Sorry, something went wrong."
+%>
+
+<body>
+  <div class="error-page">
+    <div class="error-content">
+      <img class="heart" src="/error/broken-heart.svg" />
+
+      <p><%= error %></p>
+
+      <p>Please go back and try again.<br/>If you get stuck, <a href='/contact-us'>let us know</a>.</p>
+    </div>
+  </div>
+</body>

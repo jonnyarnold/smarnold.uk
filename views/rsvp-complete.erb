@@ -14,7 +14,7 @@ first_name = person["name"].split(" ").first
     <h1 class="thanks">Thanks <%= first_name %>!</h1>
     <p>We've got that all saved.<br/>Thanks for letting us know.</p>
 
-    <a class="complete-link" href="/rsvp/<%= person["id"] %>">Change your response</a>
+    <a class="complete-link" href="/rsvp/<%= person["id"] %>?password=<%= person["password"] %>">Change your response</a>
     <a class="complete-link" href="/rsvp">RSVP for another person</a>
     <a class="complete-link" href="/">Go back to our awesome website</a>
   </div>

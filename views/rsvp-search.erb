@@ -28,7 +28,8 @@ function checkNames(nameLookup) {
   var suggestionElements = suggestions.forEach(function(suggestion) {
     var suggestionElement = document.createElement("a");
     suggestionElement.setAttribute("class", "suggestion");
-    suggestionElement.setAttribute("href", "/rsvp/" + suggestion.id);
+    suggestionElement.setAttribute("href", "#");
+    suggestionElement.onclick = function() { onNameSelect(suggestion); }
     
     var suggestionText = document.createTextNode(suggestion.name);
     suggestionElement.appendChild(suggestionText);
@@ -37,9 +38,44 @@ function checkNames(nameLookup) {
   });
 }
 
-function checkEnter(event) {
+function checkSearchEnter(event) {
+  var passwordEntry = document.getElementById("password-entry");
+  passwordEntry.style.visibility = "hidden";
+
   if (event.keyCode === 13 && suggestions.length === 1) {
-    window.location = "/rsvp/" + suggestions[0].id;
+    onNameSelect(suggestions[0]);
+  }
+}
+
+function onNameSelect(suggestion) {
+  console.log("ID " + suggestion.id + " selected!");
+
+  var nameLookup = document.getElementById("name-lookup");
+  nameLookup.value = "";
+
+  var suggestionContainer = document.getElementById("name-suggestions")
+  while (suggestionContainer.hasChildNodes()) {
+    suggestionContainer.removeChild(suggestionContainer.lastChild);
+  }
+
+  var form = document.getElementById("rsvp-search");
+  form.setAttribute("action", "/rsvp/" + suggestion.id);
+
+  var name = document.getElementById("name");
+  name.innerHTML = suggestion.name.split(" ")[0];
+
+  var passwordEntry = document.getElementById("password-entry");
+  passwordEntry.style.visibility = "visible";
+
+  var password = document.getElementById("password");
+  password.focus();
+
+}
+
+function checkPasswordEnter(event) {
+  if (event.keyCode === 13 && suggestions.length === 1) {
+    var form = document.getElementById("rsvp-search");
+    form.submit();
   }
 }
 
@@ -51,11 +87,21 @@ function checkEnter(event) {
       <img class="heart" src="/rsvp/heart-teal.svg" />
 
       <label for="name-lookup" class="name-lookup-label">Hello lovely person.<br/>Please search for your name below.</label>
-      <input class="name-lookup" name="name-lookup" type="text" oninput="checkNames(this)" onkeypress="checkEnter(event)" autocomplete="off" />
+      <input id="name-lookup" class="name-lookup" name="name-lookup" type="text" oninput="checkNames(this)" onkeypress="checkSearchEnter(event)" autocomplete="off" />
 
-      <div id="name-suggestions" class="name-suggestions">&nbsp;</div>
+      <div id="name-suggestions" class="name-suggestions">
+        &nbsp;
+      </div>
 
-      <p class="contact-us">Can't find your name? <a href="/contact-us">Contact us!</a></p>
+      <form id="rsvp-search" action="/rsvp/:id" method="GET">
+        <div id="password-entry" style="visibility: hidden;">
+          <label for="password" class="password-label">Hello <span id="name" class="name"></span>!<br/>Please enter the password from your invite.</label>
+          <input id="password" class="password" name="password" type="text" onkeypress="checkPasswordEnter(event)" autocomplete="off" />
+          <button class="submit-button" type="submit">Let's go!</button>
+        </div>
+      </form>
+
+      <p class="contact-us">Something not working? <a href="/contact-us">Contact us!</a></p>
     </div>
   </div>
 </body>

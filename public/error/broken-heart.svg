@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2.0007727mm"
+   height="2.1078663mm"
+   viewBox="0 0 7.0893521 7.4688175"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="broken-heart.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6000001"
+     inkscape:cx="-41.064058"
+     inkscape:cy="-5.9774334"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1025"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid924" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1044.8934)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.9375px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 2.3047248,1051.8923 c 0,0 -1.97507348,-3.4419 -1.83489688,-4.8028 0.14017475,-1.3609 1.13871678,-1.7776 1.95452618,-1.5441 0.8158759,0.233 0.8603155,1.0163 1.1979953,1.8139 0,0 1.0860059,-1.2086 1.9071184,-0.9617 0.8209775,0.2476 1.4884855,1.2643 0.8754785,2.3895 -0.612982,1.1253 -1.4628144,1.6461 -2.7956269,2.4432"
+       id="path818-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="czzczzc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#808080;stroke-width:0.46875;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 3.7668103,1047.5467 -1.1412167,0.4439 1.0369648,0.9657 -1.1676008,0.4387 0.8245464,0.9298 -1.4050007,0.8073"
+       id="path1010"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+  </g>
+</svg>

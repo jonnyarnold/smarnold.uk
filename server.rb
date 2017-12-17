@@ -58,7 +58,11 @@ end
 
 get '/rsvp/:id' do
   person = DB.person(params[:id])
-  puts person
+  
+  # Check password
+  halt 500 unless person
+  halt 401 if person['password'] != params[:password]
+
   erb :'rsvp-edit', locals: { person: person }
 end
 
@@ -78,4 +82,16 @@ end
 
 get '/contact-us' do
   erb :'contact-us'
+end
+
+not_found do
+  erb :'error', locals: { error: "Sorry, there's nothing here!" }
+end
+
+error 401 do
+  erb :'error', locals: { error: "Sorry, your password was incorrect." }
+end
+
+error do
+  erb :'error'
 end
