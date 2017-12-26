@@ -76,7 +76,7 @@ p {
 
 @media screen and (max-width: 640px) {
   .initial-content-container {
-    flex-direction: column;
+    display: block;
   }
 }
 
@@ -107,7 +107,7 @@ p {
 
 @media screen and (max-width: 640px) {
   .itinerary {
-    margin: 20px;
+    margin: 40px;
   }
 }
 
