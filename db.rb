@@ -27,13 +27,15 @@ module DB
 UPDATE people 
 SET 
   rsvp_response = $1,
-  dietary_requirements = $2,
-  comments = $3
-WHERE id = $4;
+  meal_choice = $2,
+  dietary_requirements = $3,
+  comments = $4
+WHERE id = $5;
 SQL
 
     $connection.exec_params(query, [
       new_details[:rsvp_response],
+      new_details[:meal_choice],
       new_details[:dietary_requirements],
       new_details[:comments],
       id

@@ -12,7 +12,7 @@ function checkNames(nameLookup) {
   var lookup = nameLookup.value;
   
   suggestions = [];
-  if (lookup.length >= 2) {
+  if (lookup.length >= 3) {
     suggestions = people.map(function(person) {
       var score = similarity(lookup, person.name);
       return { id: person.id, name: person.name, score: score };

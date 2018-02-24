@@ -70,6 +70,7 @@ end
 post '/rsvp/:id' do
   new_details = {
     rsvp_response: params["rsvp_response"].to_i,
+    meal_choice: params["meal_choice"],
     dietary_requirements: params["dietary_requirements"],
     comments: params["comments"]    
   }

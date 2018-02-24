@@ -46,34 +46,64 @@ rsvp = person["rsvp_response"]
         Hi there <%= first_name %>! It's great to hear from you.
       </p>
 
-      <p>Will you be there?</p>
-      <input 
-        id="rsvp-yes" 
-        class="rsvp-radio"
-        type="radio" 
-        name="rsvp_response" 
-        value="1" 
-        onchange="onRsvpChange(this)"
-        <%= person["rsvp_response"] == "t" ? "checked" : "" %> />
-      <label class="rsvp-button" for="rsvp-yes">Yes!</label>
+      <div class="question">
+        <p>Will you be there?</p>
+        <input 
+          id="rsvp-yes" 
+          class="rsvp-radio"
+          type="radio" 
+          name="rsvp_response" 
+          value="1" 
+          onchange="onRsvpChange(this)"
+          <%= person["rsvp_response"] == "t" ? "checked" : "" %> />
+        <label class="rsvp-button" for="rsvp-yes">Yes!</label>
 
-      <input 
-        id="rsvp-no"
-        class="rsvp-radio" 
-        type="radio" 
-        name="rsvp_response" 
-        value="0" 
-        onchange="onRsvpChange(this)"
-        <%= person["rsvp_response"] == "f" ? "checked" : "" %> />
-      <label class="rsvp-button" for="rsvp-no">No</label>
+        <input 
+          id="rsvp-no"
+          class="rsvp-radio" 
+          type="radio" 
+          name="rsvp_response" 
+          value="0" 
+          onchange="onRsvpChange(this)"
+          <%= person["rsvp_response"] == "f" ? "checked" : "" %> />
+        <label class="rsvp-button" for="rsvp-no">No</label>
+      </div>
 
       <div id="lookup-page-yes" style="display: none;">
         <p>Fab.</p>
 
-        <label for="dietary_requirements">
-          Do you have any dietary requirements our caterer should know about?
-        </label>
-        <textarea class="textarea" name="dietary_requirements" rows="4" cols="40"><%= person["dietary_requirements"] %></textarea>
+        <div class="question">
+          <p>What would you like to eat?</p>
+
+          <ul class="meal-choices">
+            <li class="meal-choice">
+              <input id="beef" type="radio" name="meal_choice" value="beef" <%= person["meal_choice"] == "beef" ? "checked" : "" %> />
+              <label for="beef">Angus steak burger in a brioche bun with Emmental cheese, gem lettuce, tomato & pickle</label>
+            </li>
+
+            <li class="meal-choice">
+              <input id="chicken" type="radio" name="meal_choice" value="chicken" <%= person["meal_choice"] == "chicken" ? "checked" : "" %> />
+              <label for="chicken">Korean chicken thigh fillet burger in a brioche bun with kimchi slaw and gochujang mayo</label>
+            </li>
+            
+            <li class="meal-choice">
+              <input id="pork" type="radio" name="meal_choice" value="pork" <%= person["meal_choice"] == "pork" ? "checked" : "" %> />
+              <label for="pork">Slow cooked BBQ pork in a brioche bun with crunchy celeriac slaw</label>
+            </li>
+
+            <li class="meal-choice">
+              <input id="veg" type="radio" name="meal_choice" value="veg" <%= person["meal_choice"] == "veg" ? "checked" : "" %> />
+              <label for="veg">Halloumi & roast vegetable stack with harissa & red pepper relish in a brioche bun</label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="question">
+          <label class="question-label" for="dietary_requirements">
+            Do you have any dietary requirements our caterer should know about?
+          </label>
+          <textarea class="textarea" name="dietary_requirements" rows="4"><%= person["dietary_requirements"] %></textarea>
+        </div>
       </div>
 
       <div id="lookup-page-no" style="display: none;">
@@ -81,10 +111,12 @@ rsvp = person["rsvp_response"]
       </div>
 
       <div id="lookup-page-both" style="display: none;">
-        <label for="comments">
-          Anything else you'd like to say?
-        </label>
-        <textarea class="textarea" name="comments" rows="4" cols="40"><%= person["comments"] %></textarea>
+        <div class="question">
+          <label class="question-label" for="comments">
+            Anything else you'd like to say?
+          </label>
+          <textarea class="textarea" name="comments" rows="4"><%= person["comments"] %></textarea>
+        </div>
 
         <button class="submit-button" type="submit">Save</button>
       </div>

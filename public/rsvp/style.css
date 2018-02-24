@@ -84,12 +84,21 @@ body {
   margin-bottom: 40px;
   border-radius: 10px;
   border: 1px solid #ccc;
+  max-width: 500px;
+  width: 100%;
 }
 
 .name-suggestions {
   display: block;
-  min-height: 2em;
+  height: 3em;
   line-height: 1.5;
+  overflow-y: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .name-suggestions {
+    height: 6em;
+  }
 }
 
 .suggestion {
@@ -111,6 +120,12 @@ body {
   font-weight: 700;
 }
 
+.question {
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+  /*padding-top: 20px;*/
+}
+
 .rsvp-radio {
   visibility: hidden;
   position: absolute;
@@ -121,20 +136,23 @@ body {
   font-weight: 700;
   padding: 20px 40px;
   border-radius: 2000px;
-  margin: 40px;
+  border: 1px solid #ddd;
+  margin: 20px;
   cursor: pointer;
 
-  transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
 }
 
 .rsvp-radio:checked + label {
   background-color: rgba(222, 133, 0, 1);
+  border-color: rgba(222, 133, 0, 1);
 }
 
 .rsvp-button:hover,
 .rsvp-button:focus,
 .rsvp-button:active {
   background-color: rgba(255, 183, 0, 1);
+  border-color: rgba(255, 183, 0, 1);
 }
 
 @media screen and (max-width: 600px) {
@@ -165,4 +183,44 @@ body {
 .complete-link {
   display: block;
   margin: 10px auto;
+}
+
+.meal-choices {
+  list-style-type: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.meal-choice label {
+  display: inline-block;
+  padding: 20px 20px;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  margin: 10px 0;
+  max-width: 500px;
+  cursor: pointer;
+
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out;
+}
+
+.meal-choice input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.meal-choice input:checked + label {
+  background-color: rgba(222, 133, 0, 1);
+  border-color: rgba(222, 133, 0, 1);
+}
+
+.meal-choice label:hover,
+.meal-choice label:focus,
+.meal-choice label:active {
+  background-color: rgba(255, 183, 0, 1);
+  border-color: rgba(255, 183, 0, 1);
+}
+
+.question-label {
+  display: block;
+  margin: 20px 0;
 }
