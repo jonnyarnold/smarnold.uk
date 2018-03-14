@@ -61,7 +61,7 @@ get '/rsvp/:id' do
   
   # Check password
   halt 500 unless person
-  halt 401 if person['password'] != params[:password]
+  halt 401 if person['password'] != params[:password].upcase
 
   erb :'rsvp-edit', locals: { person: person }
 end
