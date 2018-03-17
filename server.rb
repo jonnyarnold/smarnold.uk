@@ -3,6 +3,9 @@ require 'sass'
 require 'json'
 
 require './db'
+require './email'
+
+set :server, 'webrick'
 
 get '/' do
   erb :index
@@ -77,6 +80,7 @@ post '/rsvp/:id' do
 
   DB.update_person(params[:id], new_details)
   person = DB.person(params[:id])
+  Email.send_update_notification(person)
 
   erb :'rsvp-complete', locals: { person: person }
 end
