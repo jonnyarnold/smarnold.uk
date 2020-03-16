@@ -3,7 +3,7 @@ GEM
   specs:
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
-    ffi (1.9.18)
+    ffi (1.11.2)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     mailgun-ruby (1.1.9)
