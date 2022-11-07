@@ -2,9 +2,6 @@ require 'sinatra'
 require 'sass'
 require 'json'
 
-require './db'
-require './email'
-
 set :server, 'webrick'
 
 get '/' do
@@ -55,34 +52,7 @@ get '/the-wedding-party/style.css' do
 end
 
 get '/rsvp' do
-  all_people = DB.all_people.to_json
-  erb :'rsvp-search', locals: { names: all_people }
-end
-
-get '/rsvp/:id' do
-  person = DB.person(params[:id])
-  
-  # Check password
-  halt 500 unless person
-  halt 401 if person['password'] != params[:password].upcase
-
-  erb :'rsvp-edit', locals: { person: person }
-end
-
-# Post a person's RSVP.
-post '/rsvp/:id' do
-  new_details = {
-    rsvp_response: params["rsvp_response"].to_i,
-    meal_choice: params["meal_choice"],
-    dietary_requirements: params["dietary_requirements"],
-    comments: params["comments"]    
-  }
-
-  DB.update_person(params[:id], new_details)
-  person = DB.person(params[:id])
-  Email.send_update_notification(person)
-
-  erb :'rsvp-complete', locals: { person: person }
+  erb :'rsvp-search'
 end
 
 get '/contact-us' do
