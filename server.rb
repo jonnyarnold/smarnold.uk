@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sass'
-require 'json'
 
 set :server, 'webrick'
 
@@ -61,10 +60,6 @@ end
 
 not_found do
   erb :'error', locals: { error: "Sorry, there's nothing here!" }
-end
-
-error 401 do
-  erb :'error', locals: { error: "Sorry, your password was incorrect." }
 end
 
 error do
